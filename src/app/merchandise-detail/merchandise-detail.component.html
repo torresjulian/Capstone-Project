@@ -1,0 +1,20 @@
+<div class="card text-center">
+    <div class="card-header">
+        Details of {{merch.name}}
+    </div>
+    <div class="card-body">
+        <!-- <h5 class="card-title">Company Name: {{product.name}}</h5> -->
+        <p class="card-text">Merch Code : {{ merch.code}}</p>
+        <p class="card-text">Merch Name : {{ merch.name}}</p>
+        <p class="card-text">Merch Details : {{ merch.details}}</p>
+        <p class="card-text">Merch Image : {{ merch.image}}</p>
+        <!-- <p class="card-text">Product Company : {{ this.company.name }}</p> -->
+        <p class="card-text">Merch Vendor : {{ vendor.name }}</p>
+
+    </div>
+    <div class="card-footer text-muted">
+        <button class="btn btn-secondary" (click)="goBack()">Go Back</button> |
+        <a class="btn btn-secondary" [routerLink]="['/merchandise-edit', merch._id]">Update</a> |
+        <button class="btn btn-secondary" (click)="deleteMerchById(merch._id)">Delete</button>
+    </div>
+</div>

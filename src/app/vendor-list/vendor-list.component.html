@@ -1,0 +1,20 @@
+<a routerLink='/vendor-add' class="btn btn-info">Add Company</a>
+<br /><br />
+<table class="table table-bordered table-dark">
+    <thead>
+        <tr>
+            <th>S.No.</th>
+            <th>Vendor Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vendor of vendors;let rowIndex=index">
+            <td>{{rowIndex+1}}</td>
+            <td>{{vendor.name}}</td>
+            <td>
+                <a class="btn btn-secondary" [routerLink]="['/vendor-detail', vendor._id]">View Details</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

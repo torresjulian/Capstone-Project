@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink="/" routerLinkActive="active">Home</a>
+    <ng-container *ngIf="!auth.isAuthenticated()">
+        <li class="nav-item">
+          <a routerLink="/auth/login" class="nav-link" routerLinkActive="active">
+            Login
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/auth/register" class="nav-link">
+            Register
+          </a>
+        </li>
+      </ng-container>
+      <ng-container *ngIf="auth.isAuthenticated() && auth.getUsername() != 'admin'">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/cart']">View Cart</a>
+      </li>
+      <li class="nav-item pointer">
+        <a class="nav-link pointer" (click)="logout()">
+          Logout
+        </a>
+      </li>
+      </ng-container>
+      <ng-container *ngIf="auth.isAuthenticated() && auth.getUsername() === 'admin'">
+        <!-- <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/user-list']">Manage Users</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/vendor-list']">Manage Vendors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/merchandise-list']">Manage Goods</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link pointer">
+            {{ auth.getUsername() }}
+          </a>
+        </li> -->
+        <li class="nav-item pointer">
+          <a class="nav-link pointer" (click)="logout()">
+            Logout
+          </a>
+        </li>
+      </ng-container>
+</nav>

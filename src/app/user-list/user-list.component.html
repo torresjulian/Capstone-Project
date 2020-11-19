@@ -1,0 +1,20 @@
+<a routerLink='/user-add' class="btn btn-secondary">Add User</a>
+<br /><br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>S.No.</th>
+            <th>User Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users;let rowIndex=index">
+            <td>{{rowIndex+1}}</td>
+            <td>{{user.name}}</td>
+            <td>
+                <a class="btn btn-secondary" [routerLink]="['/user-detail', user._id]">View Details</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

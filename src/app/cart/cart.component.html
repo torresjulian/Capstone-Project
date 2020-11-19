@@ -1,0 +1,24 @@
+<h3>Cart Info</h3>
+<table class="table table-striped table-dark">
+    <tr>
+        <th>Remove</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Price</th>
+        <!-- <th>Price</th> -->
+    </tr>
+    <tr *ngFor="let m of merch">
+        <td align="center" class="pointer">
+            <a (click)="remove(m._id)">&#10060;</a>
+        </td>
+        <td>{{m.name}}</td>
+        <td><img src="{{m.image}}" width="150" height="150"></td>
+        <td>{{m.price}}</td>
+    </tr>
+    <tr>
+        <td colspan="6" align="right">Total</td>
+        <td>{{total}}</td>
+    </tr>
+</table>
+
+<input type="button" value="checkOut" (click)="checkOut()"/>

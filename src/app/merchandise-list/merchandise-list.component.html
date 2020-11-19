@@ -1,0 +1,24 @@
+<a class="btn btn-info" routerLink="/merchandise-add">Add New Merchandise</a>
+<br /><br />
+<table class="table table-bordered table-dark">
+    <thead>
+        <tr>
+            <th>S.No.</th>
+            <th>Merch Code</th>
+            <th>Merch Name</th>
+            <th>Merch Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let merch of merchandise;let rowIndex=index">
+            <td>{{rowIndex+1}}</td>
+            <td>{{merch.code}}</td>
+            <td>{{merch.name}}</td>
+            <td>{{merch.price}}</td>
+            <td>
+                <a class="btn btn-secondary" [routerLink]="['/merchandise-detail', merch._id]">View Details</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

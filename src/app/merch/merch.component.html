@@ -1,0 +1,22 @@
+<h3>Goods List</h3>
+<table class="table table-bordered table-dark">
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Price</th>
+        <!-- <th>Brand</th> -->
+        <th>Buy</th>
+    </tr>
+    <tr *ngFor="let merch of merchandise; let i = index">
+        <td>{{merch.code}}</td>
+        <td>{{merch.name}}</td>
+        <td>
+            <img src={{merch.image}} width="150" height="100">
+        </td>
+        <td>{{merch.price}}</td>
+        <td>
+            <button class="btn btn-success" (click)="addToCart(merch, merch._id)">Add to cart</button>
+        </td>
+    </tr>
+</table>
